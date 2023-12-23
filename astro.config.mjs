@@ -24,7 +24,7 @@ export default defineConfig({
     }),
     webmanifest({
       name: 'John Raptis',
-      icon: './public/favicon.ico',
+      icon: './public/favicon-16x16.png',
       lang: 'en-US',
       short_name: 'raptisj',
       description: "Personal blog of John Raptis",
