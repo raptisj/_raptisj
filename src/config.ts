@@ -1,7 +1,4 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = "raptisj";
+export const SITE_TITLE = "_raptisj";
 export const SITE_SUB_TITLE = "";
 export const SITE_DESCRIPTION = "";
 export const SITE_URL = "https://www.johnraptis.dev/";
@@ -15,10 +12,10 @@ export const projects = [
     technologies: ["NextJS"],
   },
   {
-    title: "raptisj",
+    title: "_raptisj",
     description: "Personsal blog",
-    githubUrl: "",
-    url: "",
+    githubUrl: "https://github.com/raptisj/_raptisj",
+    url: "https://www.johnraptis.dev/",
     technologies: ["Astro, Tailwind"],
   },
 ];
