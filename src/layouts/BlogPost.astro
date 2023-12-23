@@ -1,0 +1,59 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    updatedDate?: string;
+    minutes?: string;
+  };
+}
+
+const {
+  content: { title, description, pubDate, updatedDate, minutes },
+} = Astro.props as Props;
+---
+
+<html>
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white dark:bg-grey-800 text-black dark:text-grey-500">
+    <Header />
+    <main>
+      <article class="px-2 mt-8 single-post">
+        <h1 class="title dark:text-white">{title}</h1>
+
+        <div>
+          <div class="flex flex-row">
+            <div class="text-left">
+              {minutes && <span class="text-sm mr-2">{minutes} minutes</span>}
+            </div>
+            <div class="mr-2">
+              {pubDate && <time class="italic text-sm">{pubDate}</time>}
+            </div>
+          </div>
+          {
+            updatedDate && (
+              <div class="text-sm">
+                Last updated on <time>{updatedDate}</time>
+              </div>
+            )
+          }
+        </div>
+        <hr class="border-t-transparent mb-3 mt-3" />
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>

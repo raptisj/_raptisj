@@ -1,0 +1,41 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_SUB_TITLE } from "../config";
+import PostTile from "../components/PostTile.astro";
+import { mapPosts } from "../utils/post.utils";
+
+const posts = await Astro.glob("./blog/*.{md,mdx}");
+const mappedPosts = mapPosts(posts);
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="dark:bg-grey-800 text-black dark:text-grey-500">
+    <Header />
+    <main>
+      <h2 class="font-bold text-xl mb-6 dark:text-white">
+        {SITE_SUB_TITLE}
+      </h2>
+
+      <h3 class="text-green-500 text-lg px-2 uppercase">All Posts</h3>
+
+      <div class="grid grid-cols-1 mt-3 mb-3 post-list">
+        {
+          mappedPosts.map((p) => (
+            <PostTile
+              url={p.url}
+              title={p.frontmatter.title}
+              description={p.frontmatter.description}
+              date={p.frontmatter.pubDate}
+              minutes={p.frontmatter.minutes}
+            />
+          ))
+        }
+      </div>
+    </main>
+  </body>
+</html>

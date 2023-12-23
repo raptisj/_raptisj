@@ -1,0 +1,145 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SITE_SUB_TITLE,
+  projects,
+  openSource,
+} from "../config";
+import PostTile from "../components/PostTile.astro";
+import ProjectTitle from "../components/ProjectTitle.astro";
+import { mapPosts } from "../utils/post.utils";
+
+const posts = await Astro.glob("./blog/*.{md,mdx}");
+const mappedPosts = mapPosts(posts).slice(0, 4);
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="dark:bg-grey-800 text-black dark:text-grey-500">
+    <Header title={SITE_TITLE} />
+    <main>
+      <h2 class="font-bold text-xl mb-6 dark:text-white">
+        {SITE_SUB_TITLE}
+      </h2>
+
+      <div class="mb-8 px-2">
+        <p>
+          Github:<a
+            href="https://github.com/raptisj"
+            class="hover:text-gray-600 dark:text-white dark:hover:text-grey-500"
+            aria-label="Github"
+            rel="noopener"
+            target="_blank"
+          >
+            @raptisj
+          </a>
+          <br />
+          X:<a
+            href="https://twitter.com/JohnRaptisM"
+            class="hover:text-gray-600 dark:text-white dark:hover:text-grey-500"
+            aria-label="Twitter"
+            rel="noopener"
+            target="_blank"
+          >
+            @JohnRaptisM
+          </a>
+          <br />
+          ___<a
+            href="/cv"
+            class="hover:text-gray-600 dark:text-white dark:hover:text-grey-500"
+          >
+            CV
+          </a>
+          __
+          <a
+            href="https://linktopus.co/johnraptis"
+            class="hover:text-gray-600 dark:text-white dark:hover:text-grey-500"
+            aria-label="Linktopus"
+            rel="noopener"
+            target="_blank"
+          >
+            Linktopus
+          </a>
+          _____ _ ___
+          <br />
+          <i>Software engineer,</i>
+          <br />
+          <i> Thessaloniki, Greece</i>
+        </p>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center px-2">
+          <h3 class="uppercase text-green-500 text-lg">Posts</h3>
+          <a href="/blog" class="text-sm text-green-500 hover:text-green-700"
+            >See all posts</a
+          >
+        </div>
+
+        <div class="grid grid-cols-1 mt-3 mb-3 home-post-list">
+          {
+            mappedPosts.map((p) => (
+              <PostTile
+                url={p.url}
+                title={p.frontmatter.title}
+                description={p.frontmatter.description}
+                date={p.frontmatter.pubDate}
+                minutes={p.frontmatter.minutes}
+                is:raw
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center px-2">
+          <h3 class="uppercase text-green-500 text-lg">Projects</h3>
+        </div>
+
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-2 mt-3 mb-3 gap-2 home-project-list"
+        >
+          {
+            projects.map((p) => (
+              <ProjectTitle
+                url={p.url}
+                githubUrl={p.githubUrl}
+                title={p.title}
+                description={p.description}
+                technologies={p.technologies}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <div class="px-2 mt-8">
+          <h3 class="uppercase text-green-500 text-lg">Open source</h3>
+          <p>Repositories I made contributions to</p>
+        </div>
+
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-2 mt-3 mb-3 gap-2 home-project-list"
+        >
+          {
+            openSource.map((p) => (
+              <ProjectTitle
+                githubUrl={p.githubUrl}
+                title={p.title}
+                description={p.description}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

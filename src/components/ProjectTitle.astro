@@ -1,0 +1,41 @@
+---
+export interface Props {
+  url?: string;
+  githubUrl: string;
+  title: string;
+  description: string;
+  technologies?: string[];
+}
+
+const { title, description, githubUrl, technologies } = Astro.props;
+---
+
+<div class="project">
+  <div class="mb-2 p-1 flex flex-col h-full">
+    <div>
+      <div class="mb-2">
+        <a href={githubUrl} class="dark:text-white">
+          <h2 class="font-bold">
+            {title}
+          </h2>
+        </a>
+      </div>
+
+      <div class="flex items-center">
+        {description && <div class="text-sm">{description}</div>}
+      </div>
+    </div>
+
+    {
+      technologies?.length && (
+        <div class="flex items-center justify-between mt-auto">
+          <div class="flex items-center mt-2">
+            <div class="text-xs">
+              {technologies.map((t) => `#${t}`).join(",")}
+            </div>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</div>

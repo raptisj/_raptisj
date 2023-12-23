@@ -1,0 +1,32 @@
+---
+export interface Props {
+  url: string;
+  title: string;
+  description: string;
+  date: string;
+  minutes?: number;
+}
+
+const { url, title, date, minutes = "" } = Astro.props;
+---
+
+<a href={url}>
+  <div class="post">
+    <div>
+      <div class="dark:text-white">
+        <h2 class="font-bold" >
+          {title}
+        </h2>
+      </div>
+
+      <div class="flex items-center">
+        <div class="text-sm">
+          <span class="text-sm">
+            {date}
+          </span>
+          {!!minutes && <span class="ml-2 italic text-sm">{minutes} min read</span>}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

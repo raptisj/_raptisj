@@ -1,0 +1,44 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, cv } from "../config";
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="dark:bg-grey-800 text-black dark:text-grey-500">
+    <Header title={SITE_TITLE} />
+    <main>
+      <h3 class="text-green-500 text-lg px-2 uppercase">CV</h3>
+
+      <ul class="timeline">
+        {
+          cv.map((c) => (
+            <li class="timeline-event">
+              <label class="timeline-event-icon" />
+              <div class="timeline-event-copy">
+                <p class="timeline-event-thumbnail">
+                  {c.timeStart} - {c.timeEnd || "now"}
+                </p>
+                <h3>{c.title}</h3>
+                <h4 class="text-gray-400">{c.company}</h4>
+                <p>{c.description}</p>
+
+                {!!c.languages.length && (
+                  <div class="flex items-center mt-2">
+                    <div class="text-xs">
+                      {c.languages.map((t) => `#${t}`).join(", ")}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </body>
+</html>
