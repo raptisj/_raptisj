@@ -3,8 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "Introduction to Zustand"
 pubDate: "2022-03-02"
 description: "The simplest state management system there is"
-# heroImage: ""
-minutes: 7
+minutes: 5
 ---
 
 State management in React has been the subject of discussion for ages and it sure has evolved over the years. With the addition of React Hooks being the main turning point, there was kinda of a renaissance in how we think about state. There are many different state management systems that take different approaches, some notoriously verbose while others are more minimal. One such system is [Zustand](https://github.com/pmndrs/zustand).
