@@ -32,7 +32,7 @@ export const cv = [
   {
     title: "Frontend Engineer",
     company: "Clerk.dev",
-    description: "Made some contributions",
+    description: "// TODO: add what I did",
     timeStart: "May 2022",
     timeEnd: "Aug 2023",
     languages: ["Typescript", "NodeJS", "React", "Git", "Packaging"],
@@ -40,7 +40,7 @@ export const cv = [
   {
     title: "Frontend Engineer",
     company: "Bestprice.gr",
-    description: "Made some contributions",
+    description: "// TODO: add what I did",
     timeStart: "Oct 2020",
     timeEnd: "May 2022",
     languages: ["Javascript", "React", "Typescript", "Git"],
@@ -48,7 +48,7 @@ export const cv = [
   {
     title: "Javascript Developer",
     company: "Visualeyes",
-    description: "Made some contributions",
+    description: "// TODO: add what I did",
     timeStart: "Nov 2019",
     timeEnd: "Jul 2020",
     languages: ["Javascript", "React", "Git"],
@@ -56,7 +56,7 @@ export const cv = [
   {
     title: "Frontend Developer",
     company: "Darkpony Internet Services",
-    description: "Made some contributions",
+    description: "// TODO: add what I did",
     timeStart: "May 2018",
     timeEnd: "Jun 2019",
     languages: ["Javascript", "HTML", "SCSS", "Git"],
