@@ -16,7 +16,13 @@ export const projects = [
     description: "Personsal blog",
     githubUrl: "https://github.com/raptisj/_raptisj",
     url: "https://www.johnraptis.dev/",
-    technologies: ["Astro, Tailwind"],
+    technologies: ["Astro", "Tailwind"],
+  },
+  {
+    title: "JS Cache Requests",
+    description: "Explore native ways to cache API data",
+    githubUrl: "https://github.com/raptisj/js-cache-requests/tree/main",
+    technologies: ["IndexedDB", "Cache API", "local storage"],
   },
 ];
 
