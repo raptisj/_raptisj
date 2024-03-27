@@ -32,6 +32,11 @@ export const openSource = [
     description: "Official Javascript repository for Clerk authentication",
     githubUrl: "https://github.com/clerk/javascript",
   },
+  {
+    title: "elUtils",
+    description: "A library that contains convenient, easy-to-use, lightweight utility functions when building applications for Greek businesses.",
+    githubUrl: "https://github.com/tsevdos/elUtils",
+  },
 ];
 
 export const cv = [
